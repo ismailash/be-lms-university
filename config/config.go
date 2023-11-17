@@ -2,6 +2,7 @@ package config
 
 import (
 	"errors"
+	"fmt"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -50,6 +51,7 @@ func (c *Config) readConfig() error {
 	}
 
 	if c.ApiConfig.ApiPort == "" || c.DbConfig.Driver == "" || c.DbConfig.Host == "" || c.DbConfig.Name == "" || c.DbConfig.Port == "" || c.DbConfig.User == "" {
+		fmt.Println(c.ApiConfig.ApiPort, c.DbConfig.Driver, c.DbConfig.Host, c.DbConfig.Name, c.DbConfig.Port, c.DbConfig.User)
 		return errors.New("all environment variables required")
 	}
 

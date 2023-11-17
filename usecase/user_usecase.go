@@ -23,7 +23,8 @@ func (u *userUseCase) FindById(id string) (entity.User, error) {
 
 	user, err := u.repo.Get(id)
 	if err != nil {
-		return entity.User{}, fmt.Errorf("user with ID %s not found", id)
+		fmt.Println("ERROR DI USECASE NIH BOS: %s", err.Error())
+		return entity.User{}, err
 	}
 
 	return user, nil

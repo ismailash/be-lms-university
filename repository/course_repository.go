@@ -16,7 +16,7 @@ type courseRepository struct {
 
 func (c *courseRepository) Get(id string) (entity.Course, error) {
 	var course entity.Course
-	err := c.db.QueryRow(`SELECT * FROM courses WHERE id = $1`, id).
+	err := c.db.QueryRow(`SELECT id, course_full_name, course_short_name, description, course_start_date, course_end_date, course_image, created_at, updated_at FROM courses WHERE id = $1`, id).
 		Scan(
 			&course.Id,
 			&course.CourseFullName,

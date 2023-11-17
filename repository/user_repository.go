@@ -41,6 +41,7 @@ func (u *userRepository) Get(id string) (entity.User, error) {
 			&user.FirstName,
 			&user.LastName,
 			&user.Email,
+			&user.Username,
 			&user.Role,
 			&user.Photo,
 			&user.CreatedAt,
