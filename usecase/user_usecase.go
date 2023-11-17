@@ -1,8 +1,6 @@
 package usecase
 
 import (
-	"fmt"
-
 	"enigmacamp.com/be-lms-university/model/entity"
 	"enigmacamp.com/be-lms-university/repository"
 )
@@ -23,7 +21,6 @@ func (u *userUseCase) FindById(id string) (entity.User, error) {
 
 	user, err := u.repo.Get(id)
 	if err != nil {
-		fmt.Println("ERROR DI USECASE NIH BOS: %s", err.Error())
 		return entity.User{}, err
 	}
 

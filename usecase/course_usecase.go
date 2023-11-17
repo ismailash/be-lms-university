@@ -1,8 +1,6 @@
 package usecase
 
 import (
-	"fmt"
-
 	"enigmacamp.com/be-lms-university/model/entity"
 	"enigmacamp.com/be-lms-university/repository"
 )
@@ -18,7 +16,7 @@ type courseUseCase struct {
 func (c *courseUseCase) FindById(id string) (entity.Course, error) {
 	course, err := c.repo.Get(id)
 	if err != nil {
-		return entity.Course{}, fmt.Errorf("course with ID %s not found", id)
+		return entity.Course{}, err
 	}
 	return course, nil
 }
